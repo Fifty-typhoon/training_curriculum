@@ -34,7 +34,7 @@ class CalendarsController < ApplicationController
       plan = @plans.map do |plan|  #mapメソッドは各要素に処理を施すメソッド
         plans.push(plan.plan) if plan.date == @todays_date + x
       end
-      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: plans}
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, wday: wdays[(@todays_date+x).wday], plans: plans}
       @week_days.push(days)  #配列の末尾に引数を渡す破壊的メソッド 
     end
 
